@@ -22,10 +22,16 @@ console.log(getRandomPhraseAsArray(phrases));
 
 // adds the letters of a string to the display
 function addPhraseToDisplay(array) {
-    //create a for loop
+    const ul = document.querySelector('#phrase ul');
     for (let i = 0, i < array.length, i++) {
         const li = document.createElement('li');
-        
+        li.textContent = array[i];
+        ul.appendChild(li);
+        if (array[i] !== '') {
+            li.className = ('letter');
+        } else {
+            li.className = ('space');
+        }
     }
 }
 
