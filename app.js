@@ -8,23 +8,21 @@ const phrases = [
     'lickety split',
     'strapped for cash',
     'reality check',
-    'poetry in motion'
+    'the matrix'
 ];
 
 // return a random phrase from an array
-const getRandomPhraseAsArray = arr => {
-    let randNum = Math.floor(Math.random() * arr.length);
-    let randPhrase = arr[randNum];
+function getRandomPhraseAsArray(array) {
+    let randNum = Math.floor(Math.random() * array.length);
+    let randPhrase = array[randNum];
     return randPhrase;
 }
 
-returnPhrase = getRandomPhraseAsArray(phrases);
+console.log(getRandomPhraseAsArray(phrases));
 
 // adds the letters of a string to the display
-const addPhraseToDisplay = arr => {
-    for ( let i = 0, i < returnPhrase.length, i++) {
-        
-    }
+function addPhraseToDisplay() {
+    //create a for loop
 }
 
 addPhraseToDisplay(returnPhrase);
