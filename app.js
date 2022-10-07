@@ -21,8 +21,12 @@ function getRandomPhraseAsArray(array) {
 console.log(getRandomPhraseAsArray(phrases));
 
 // adds the letters of a string to the display
-function addPhraseToDisplay() {
+function addPhraseToDisplay(array) {
     //create a for loop
+    for (let i = 0, i < array.length, i++) {
+        const li = document.createElement('li');
+        
+    }
 }
 
 addPhraseToDisplay(returnPhrase);
