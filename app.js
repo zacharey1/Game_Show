@@ -3,6 +3,8 @@ const phrase = document.getElementById('phrase');
 const startButton = document.querySelector('.btn__reset');
 let missed = 0;
 
+
+
 const phrases = [
     'abracadabra',
     'lickety split',
@@ -19,27 +21,36 @@ function getRandomPhraseAsArray(array) {
 }
 
 console.log(getRandomPhraseAsArray(phrases));
+const randomPhrase = getRandomPhraseAsArray(phrases);
 
 // adds the letters of a string to the display
 function addPhraseToDisplay(array) {
     const ul = document.querySelector('#phrase ul');
-    for (let i = 0, i < array.length, i++) {
+    for (let i = 0; i < array.length; i++) {
         const li = document.createElement('li');
         li.textContent = array[i];
         ul.appendChild(li);
         if (array[i] !== '') {
-            li.className = ('letter');
+            li.className = 'letter';
         } else {
-            li.className = ('space');
+            li.className = 'space';
         }
     }
 }
 
-addPhraseToDisplay(returnPhrase);
+addPhraseToDisplay(randomPhrase);
 
 // check if a letter is in the phrase
 const checkLetter = button => {
-
+    const checkLetter = document.querySelector('li');
+    let match = null;
+    for (let i = 0; i < checkLetter.length; i++) {
+        if (checkLetter[i].textContent === button.textContent) {
+            li.className = 'show';
+            let match = button.textContent;
+        }
+    }
+    return match;
 }
 
 // check if the game has been won or lost
@@ -54,5 +65,8 @@ startButton.addEventListener('click', () => {
 
 //listen for the onscreen keyboard to be clicked
 qwerty.addEvenetListener('click', e => {
-    
+    if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
+        e.target.className = 'chosen';
+        const checked = checkLetter();
+    }
 });
