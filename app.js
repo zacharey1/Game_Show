@@ -55,7 +55,19 @@ const checkLetter = button => {
 
 // check if the game has been won or lost
 const checkWin = () => {
-
+    const letter = document.querySelector('.letter');
+    const show = document.querySelector('.show');
+    const overlay = document.querySelector(#overlay);
+    const headline = document.querySelector('.title');
+    if (letter.length === show.length) {
+        overlay.className = 'win';
+        headline.textContent = 'You win!';
+        overlay.style.display = 'flex';
+    } else if (missed > 4) {
+        overlay.className = 'lose';
+        headline.textContent = 'You lose.';
+        overlay.style.display = 'flex';
+    }
 }
 
 //listen for the start game button to be pressed
