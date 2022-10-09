@@ -57,7 +57,7 @@ const checkLetter = button => {
 const checkWin = () => {
     const letter = document.querySelector('.letter');
     const show = document.querySelector('.show');
-    const overlay = document.querySelector(#overlay);
+    const overlay = document.querySelector('#overlay');
     const headline = document.querySelector('.title');
     if (letter.length === show.length) {
         overlay.className = 'win';
