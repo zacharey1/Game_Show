@@ -68,5 +68,11 @@ qwerty.addEvenetListener('click', e => {
     if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
         e.target.className = 'chosen';
         const checked = checkLetter();
+        if (checked === null) {
+            const heart = document.querySelector('.tries');
+            const scoreBoard = document.querySelector('.scoreboard ol');
+            heart.removeChild(scoreboard.firstChild);
+            missed ++;
+        }
     }
 });
