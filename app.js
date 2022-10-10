@@ -1,6 +1,7 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const startButton = document.querySelector('.btn__reset');
+const overlay = document.querySelector('#overlay');
 let missed = 0;
 
 
@@ -57,7 +58,6 @@ const checkLetter = button => {
 const checkWin = () => {
     const letter = document.querySelector('.letter');
     const show = document.querySelector('.show');
-    const overlay = document.querySelector('#overlay');
     const headline = document.querySelector('.title');
     if (letter.length === show.length) {
         overlay.className = 'win';
@@ -72,7 +72,7 @@ const checkWin = () => {
 
 //listen for the start game button to be pressed
 startButton.addEventListener('click', () => {
-    startButton.style.display = 'none';
+    overlay.style.display = 'none';
 });
 
 //listen for the onscreen keyboard to be clicked
@@ -83,7 +83,7 @@ qwerty.addEvenetListener('click', e => {
         if (checked === null) {
             const heart = document.querySelector('.tries');
             const scoreBoard = document.querySelector('.scoreboard ol');
-            heart.removeChild(scoreboard.firstChild);
+            heart.removeChild(scoreBoard.firstChild);
             missed ++;
         }
     }
