@@ -82,8 +82,7 @@ qwerty.addEvenetListener('click', e => {
         const checked = checkLetter();
         if (checked === null) {
             const heart = document.querySelector('.tries');
-            const scoreBoard = document.querySelector('.scoreboard ol');
-            heart.removeChild(scoreBoard.firstChild);
+            heart.src = 'lostHeart.png';
             missed ++;
         }
     }
