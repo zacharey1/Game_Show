@@ -4,8 +4,6 @@ const startButton = document.querySelector('.btn__reset');
 const overlay = document.querySelector('#overlay');
 let missed = 0;
 
-
-
 const phrases = [
     'abracadabra',
     'lickety split',
@@ -21,7 +19,6 @@ function getRandomPhraseAsArray(array) {
     return randPhrase;
 }
 
-console.log(getRandomPhraseAsArray(phrases));
 const randomPhrase = getRandomPhraseAsArray(phrases);
 
 // adds the letters of a string to the display
@@ -47,7 +44,7 @@ const checkLetter = button => {
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
         if (checkLetter[i].textContent === button.textContent) {
-            li.className = 'show';
+            checkLetter.className = 'show';
             let match = button.textContent;
         }
     }
@@ -76,10 +73,10 @@ startButton.addEventListener('click', () => {
 });
 
 //listen for the onscreen keyboard to be clicked
-qwerty.addEvenetListener('click', e => {
+qwerty.addEventListener('click', e => {
     if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
         e.target.className = 'chosen';
-        const checked = checkLetter();
+        const checked = checkLetter(e.target.textContent);
         if (checked === null) {
             const heart = document.querySelector('.tries');
             heart.src = 'lostHeart.png';
