@@ -12,6 +12,11 @@ const phrases = [
     'the matrix'
 ];
 
+//listen for the start game button to be pressed
+startButton.addEventListener('click', () => {
+    overlay.style.display = 'none';
+});
+
 // return a random phrase from an array
 function getRandomPhraseAsArray(array) {
     let randNum = Math.floor(Math.random() * array.length);
@@ -51,6 +56,21 @@ const checkLetter = button => {
     return match;
 }
 
+
+
+//listen for the onscreen keyboard to be clicked
+qwerty.addEventListener('click', e => {
+    if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
+        e.target.className = 'chosen';
+        const checked = checkLetter(e.target.textContent);
+        if (checked === null) {
+            const heart = document.querySelector('.tries');
+            heart.src = 'lostHeart.png';
+            missed ++;
+        }
+    }
+});
+
 // check if the game has been won or lost
 const checkWin = () => {
     const letter = document.querySelector('.letter');
@@ -66,21 +86,3 @@ const checkWin = () => {
         overlay.style.display = 'flex';
     }
 }
-
-//listen for the start game button to be pressed
-startButton.addEventListener('click', () => {
-    overlay.style.display = 'none';
-});
-
-//listen for the onscreen keyboard to be clicked
-qwerty.addEventListener('click', e => {
-    if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
-        e.target.className = 'chosen';
-        const checked = checkLetter(e.target.textContent);
-        if (checked === null) {
-            const heart = document.querySelector('.tries');
-            heart.src = 'lostHeart.png';
-            missed ++;
-        }
-    }
-});
