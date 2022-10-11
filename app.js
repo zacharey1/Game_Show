@@ -45,12 +45,14 @@ addPhraseToDisplay(randomPhrase);
 
 // check if a letter is in the phrase
 const checkLetter = button => {
-    const checkLetter = document.querySelector('li');
+    console.log("checkLetter fired - letter:", button); //temporary
+    const checkLetter = document.querySelectorAll('li');
+    console.log("checkLetter value:", checkLetter); //temporary
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
-        if (checkLetter[i].textContent === button.textContent) {
-            checkLetter.className = 'show';
-            let match = button.textContent;
+        if (checkLetter[i].textContent === button) {
+            checkLetter[i].className = 'show';
+            let match = button;
         }
     }
     return match;
