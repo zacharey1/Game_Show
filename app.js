@@ -23,8 +23,6 @@ function getRandomPhraseAsArray(array) {
     return randNum.split('');
 }
 
-const randomPhrase = getRandomPhraseAsArray(phrases);
-
 // adds the letters of a string to the display
 function addPhraseToDisplay(array) {
     const ul = document.querySelector('#phrase ul');
@@ -40,7 +38,8 @@ function addPhraseToDisplay(array) {
     }
 }
 
-addPhraseToDisplay(randomPhrase);
+const phraseArray = getRandomPhraseAsArray(phrases);
+addPhraseToDisplay(phraseArray); 
 
 // check if a letter is in the phrase
 const checkLetter = button => {
@@ -50,7 +49,7 @@ const checkLetter = button => {
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
         if (checkLetter[i].textContent === button) {
-            checkLetter[i].className = 'show';
+            checkLetter[i].classList.add("show");
             let match = button;
         }
     }
