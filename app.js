@@ -19,9 +19,8 @@ startButton.addEventListener('click', () => {
 
 // return a random phrase from an array
 function getRandomPhraseAsArray(array) {
-    let randNum = Math.floor(Math.random() * array.length);
-    let randPhrase = array[randNum];
-    return randPhrase;
+    let randNum = array[Math.floor(Math.random() * array.length)];
+    return randNum.split('');
 }
 
 const randomPhrase = getRandomPhraseAsArray(phrases);
@@ -33,7 +32,7 @@ function addPhraseToDisplay(array) {
         const li = document.createElement('li');
         li.textContent = array[i];
         ul.appendChild(li);
-        if (array[i] !== '') {
+        if (array[i] !== ' ') {
             li.className = 'letter';
         } else {
             li.className = 'space';
