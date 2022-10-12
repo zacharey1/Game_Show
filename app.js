@@ -64,8 +64,8 @@ qwerty.addEventListener('click', e => {
         e.target.className = 'chosen';
         const checked = checkLetter(e.target.textContent);
         if (checked === null) {
-            const heart = document.querySelector('.tries');
-            heart.src = 'lostHeart.png';
+            const heart = document.querySelectorAll('.tries img');
+            heart[missed].src = 'lostHeart.png';
             missed ++;
         }
     }
