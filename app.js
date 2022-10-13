@@ -43,14 +43,12 @@ addPhraseToDisplay(phraseArray);
 
 // check if a letter is in the phrase
 const checkLetter = button => {
-    console.log("checkLetter fired - letter:", button); //temporary
     const checkLetter = document.querySelectorAll('li');
-    console.log("checkLetter value:", checkLetter); //temporary
     let match = null;
     for (let i = 0; i < checkLetter.length; i++) {
         if (checkLetter[i].textContent === button) {
             checkLetter[i].classList.add("show");
-            let match = button;
+            match = button;
         }
     }
     return match;
@@ -59,7 +57,7 @@ const checkLetter = button => {
 
 
 //listen for the onscreen keyboard to be clicked
-qwerty.addEventListener('click', e => {
+qwerty.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON' && e.target.className !== 'chosen') {
         e.target.className = 'chosen';
         const checked = checkLetter(e.target.textContent);
@@ -67,7 +65,7 @@ qwerty.addEventListener('click', e => {
             const heart = document.querySelectorAll('.tries img');
             heart[missed].src = 'lostHeart.png';
             missed ++;
-        }
+         }
     }
 });
 
