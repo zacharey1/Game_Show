@@ -2,6 +2,8 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const startButton = document.querySelector('.btn__reset');
 const overlay = document.querySelector('#overlay');
+const ul = document.querySelector('#phrase ul');
+const heart = document.querySelectorAll('.tries img');
 let missed = 0;
 
 const phrases = [
@@ -25,7 +27,7 @@ function getRandomPhraseAsArray(array) {
 
 // adds the letters of a string to the display
 function addPhraseToDisplay(array) {
-    const ul = document.querySelector('#phrase ul');
+    // const ul = document.querySelector('#phrase ul');
     for (let i = 0; i < array.length; i++) {
         const li = document.createElement('li');
         li.textContent = array[i];
@@ -62,7 +64,7 @@ qwerty.addEventListener('click', (e) => {
         e.target.className = 'chosen';
         const checked = checkLetter(e.target.textContent);
         if (checked === null) {
-            const heart = document.querySelectorAll('.tries img');
+            // const heart = document.querySelectorAll('.tries img');
             heart[missed].src = 'lostHeart.png';
             missed ++;
          }
@@ -72,16 +74,32 @@ qwerty.addEventListener('click', (e) => {
 
 // check if the game has been won or lost
 const checkWin = () => {
-    const letter = document.querySelector('.letter');
-    const show = document.querySelector('.show');
+    const letter = document.querySelectorAll('.letter');
+    const show = document.querySelectorAll('.show');
     const headline = document.querySelector('.title');
     if (letter.length === show.length) {
         overlay.classList.add = ('win');
         headline.textContent = 'You win!';
         overlay.style.display = 'flex';
+        reset();
     } else if (missed > 4) {
         overlay.classList.add = ('lose');
         headline.textContent = 'You lose.';
         overlay.style.display = 'flex';
+        reset();
+    }
+}
+
+//reset the game
+function reset() {
+    missed = 0;
+    ul.innerHTML = '';
+    addPhraseToDisplay(phraseArray);
+    const chosenBtn = document.querySelectorAll('button');
+    for (let i = 0; i < chosenBtn.length; i++) {
+        chosenBtn[i].classList.remove('chosen');
+    }
+    for (let i = 0; i < heart.length; i++) {
+        heart[i].src = 'liveHeart.png';
     }
 }
