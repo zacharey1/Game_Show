@@ -78,12 +78,12 @@ const checkWin = () => {
     const show = document.querySelectorAll('.show');
     const headline = document.querySelector('.title');
     if (letter.length === show.length) {
-        overlay.classList.add = ('win');
+        overlay.classList.add('win');
         headline.textContent = 'You win!';
         overlay.style.display = 'flex';
         reset();
     } else if (missed > 4) {
-        overlay.classList.add = ('lose');
+        overlay.classList.add('lose');
         headline.textContent = 'You lose.';
         overlay.style.display = 'flex';
         reset();
@@ -94,7 +94,8 @@ const checkWin = () => {
 function reset() {
     missed = 0;
     ul.innerHTML = '';
-    addPhraseToDisplay(phraseArray);
+    const resetPhrase = getRandomPhraseAsArray(phrases);
+    addPhraseToDisplay(resetPhrase);
     const chosenBtn = document.querySelectorAll('button');
     for (let i = 0; i < chosenBtn.length; i++) {
         chosenBtn[i].classList.remove('chosen');
